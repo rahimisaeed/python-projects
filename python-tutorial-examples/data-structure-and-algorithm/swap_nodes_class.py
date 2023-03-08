@@ -1,6 +1,3 @@
-import LinkedList
-import Node
-
 
 def swap_nodes(input_list, val1, val2):
     print(f'Swapping {val1} with {val2}')
@@ -43,12 +40,3 @@ def swap_nodes(input_list, val1, val2):
     temp = node1.get_next_node()
     node1.set_next_node(node2.get_next_node())
     node2.set_next_node(temp)
-
-
-ll = LinkedList.LinkedList()
-for i in range(10):
-    ll.insert_beginning(i)
-
-print(ll.stringify_list())
-swap_nodes(ll, 9, 5)
-print(ll.stringify_list())
