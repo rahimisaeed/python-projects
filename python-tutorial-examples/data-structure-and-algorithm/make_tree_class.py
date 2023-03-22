@@ -42,3 +42,38 @@ class TreeNode:
                 stack.append([child, level])
 
         return level_str
+
+
+def print_tree(root):
+    stack = deque()
+    stack.append([root, 0])
+    level_str = "\n"
+    prev_level = 0
+    level = 0
+    while len(stack) > 0:
+        prev_level = level
+        node, level = stack.pop()
+
+        if level > 0 and len(stack) > 0 and level <= stack[-1][1]:
+            level_str += "   "*(level-1) + "├─"
+        elif level > 0:
+            level_str += "   "*(level-1) + "└─"
+        level_str += str(node.value)
+        level_str += "\n"
+        level += 1
+        for child in node.children:
+            stack.append([child, level])
+
+    print(level_str)
+
+
+def print_path(path):
+    # If path is None, no path was found
+    if path is None:
+        print("No paths found!")
+
+    # If a path was found, print path
+    else:
+        print("Path found:")
+        for node in path:
+            print(node.value)
