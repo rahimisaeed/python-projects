@@ -17,7 +17,7 @@ class HashMap:
         return hash_code % self.array_size
 
     def assign(self, key, value):
-        array_index = self.compress(hash(key))
+        array_index = self.compress(self.hash(key))
         payload = Node([key, value])
         list_at_array = self.array[array_index]
 
@@ -28,7 +28,7 @@ class HashMap:
         list_at_array.insert(payload)
 
     def retrieve(self, key):
-        array_index = self.compress(hash(key))
+        array_index = self.compress(self.hash(key))
         list_at_index = self.array[array_index]
 
         for item in list_at_index:
