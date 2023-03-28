@@ -1,7 +1,7 @@
 from random import randrange
 
 from graph_class import Graph
-from vertex_class import Vertex
+from graph_vertex_class import Vertex
 
 
 def print_graph(graph):
