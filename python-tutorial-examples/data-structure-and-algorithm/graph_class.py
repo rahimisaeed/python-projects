@@ -10,9 +10,15 @@ class Graph:
 
     def add_edge(self, from_vertex, to_vertex, weight=0):
         self.graph_dict[from_vertex.value].add_edge(to_vertex.value, weight)
+
+        # The conditional statement allows for bi-directional edges if the
+        # graph is not directed.
         if not self.directed:
             self.graph_dict[to_vertex.value].add_edge(
                 from_vertex.value, weight)
+
+    # def add_vertex(self, node):
+    #     self.graph_dict[node.value] = node
 
     def find_path(self, start_vertex, end_vertex):
         start = [start_vertex]
